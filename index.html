@@ -12,21 +12,23 @@
             <div class="header-text">
                 <h1 class="logo">💻 Programación 3 - UNER</h1>
             </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#integrantes">Integrantes</a></li>
-                    <li><a href="#trabajos">Trabajos Prácticos</a></li>
-                    
-                </ul>
-            </nav>
-            <div class="header-image">
-                <img src="public/iso.jpg" alt="Imagen representativa">
+    
+            <div class="nav-wrapper">
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#integrantes">Integrantes</a></li>
+                        <li><a href="#trabajos">Trabajos Prácticos</a></li>
+                    </ul>
+                </nav>
+                <div class="header-image">
+                    <img src="public/header.png" alt="Imagen representativa">
+                </div>
             </div>
+    
+            <button class="menu-toggler">☰</button>
         </div>
     </header>
-
     <main class="main">
-        <!-- Sección Integrantes -->
         <section id="integrantes" class="container integrantes-section">
             <h2>👥 Integrantes del Grupo U</h2>
             <div class="integrantes-cards">
@@ -68,7 +70,6 @@
             </a>
         </section>
 
-        <!-- Sección Trabajos -->
         <section id="trabajos" class="container">
             <h2>📚 Trabajos Prácticos</h2>
             <div class="card-list">
@@ -81,7 +82,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Programación 3 — Todos los derechos reservados.</p>
@@ -89,5 +89,13 @@
     </footer>
 
     <script src="TP N°1/gestionDatos.js"></script>
+    <script>
+        const toggler = document.querySelector('.menu-toggler');
+        const nav = document.querySelector('.nav');
+
+        toggler.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
