@@ -3,3 +3,4 @@
 - **Integrantes:** 
 - Mernes, Eileen Isabella (isabellamernes)
 - Soto Jonatan Emanuel Luis (joni4567/jesoto)
+- Micaela Gomez (Mica16Gomez)
