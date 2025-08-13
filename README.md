@@ -2,3 +2,4 @@
 
 - **Integrantes:** 
 - Mernes, Eileen Isabella (isabellamernes)
+- Soto, Jonatan (joni4567)
