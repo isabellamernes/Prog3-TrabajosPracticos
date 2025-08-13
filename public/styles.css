@@ -28,8 +28,12 @@ body {
 
 /* Header */
 .header {
-    background: var(--color-primary);
-    padding: 1rem 0;
+    /*background: var(--color-primary);*/
+    background-image: url('./prog3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2.5rem 0;
     color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
@@ -52,7 +56,7 @@ body {
 }
 
 .header-image img {
-    width: 120px;
+    width: 75px;
     border-radius: var(--radius);
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
@@ -68,6 +72,7 @@ body {
     gap: 1.5rem;
 }
 
+
 .nav a {
     color: white;
     text-decoration: none;
@@ -75,8 +80,16 @@ body {
     transition: var(--transition);
 }
 
+nav ul img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    align-content: center;
+}
+
 .nav a:hover {
-    text-decoration: underline;
+    color:#111827;
 }
 
 /* Main */
@@ -162,11 +175,16 @@ body {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
+.card .btn {
+    display: block;
+    margin: 10px auto; /* Centra horizontalmente */
+    text-align: center;
+}
+/*BOTON GITHUB Y TPS*/
 .btn {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: var(--color-primary);
+    background: #2A8542;
     color: white;
     border-radius: var(--radius);
     text-decoration: none;
@@ -174,13 +192,10 @@ body {
 }
 
 .btn:hover {
-    background: var(--color-primary-dark);
+    background: #165c2c;
 }
-.card .btn {
-    display: block;
-    margin: 10px auto; /* Centra horizontalmente */
-    text-align: center;
-}
+
+
 
 /* Footer */
 .footer {
@@ -190,3 +205,5 @@ body {
     padding: 1rem;
     font-size: 0.9rem;
 }
+
+
