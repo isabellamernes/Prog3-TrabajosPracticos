@@ -157,3 +157,6 @@ console.log(`PUNTO 4.8 - Ordenar productos segun su  precio`);
 
 const productosOrdenados = productos.sort((a, b) => b.precio - a.precio);
 console.log(productosOrdenados);
+
+ console.log('Array final despues de todas las operaciones realizadas ')
+ console.log(productos)
