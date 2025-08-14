@@ -3,7 +3,7 @@
 //CREAMOS EL ARRAY//
 
 console.log(`TRABAJO NUMERO 1 - ARRAYS `) 
-s
+
 
 console.log(`PUNTO 1 -Creamos el array`)
 const productos = [
@@ -160,5 +160,6 @@ console.log(productosOrdenados);
 // Imprimo el array final 
  console.log('Array final despues de todas las operaciones realizadas ')
  console.log(productos)
+
 
 
