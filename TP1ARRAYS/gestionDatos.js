@@ -161,3 +161,4 @@ console.log(productosOrdenados);
  console.log('Array final despues de todas las operaciones realizadas ')
  console.log(productos)
 
+
