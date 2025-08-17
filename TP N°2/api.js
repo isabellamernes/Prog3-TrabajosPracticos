@@ -4,5 +4,3 @@ async function obtenerProductos(limit = 0) {
     const data = await response.json();
     return data;
 }
-
-obtenerProductos(5)
