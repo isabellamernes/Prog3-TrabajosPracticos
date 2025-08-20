@@ -1,7 +1,5 @@
-// Importa el módulo 'fs' de Node.js para operaciones del sistema de archivos,
-// usando la versión de promesas.
+
 const fs = require('fs').promises;
-// Importa el módulo 'path' para manejar rutas de archivos de manera segura.
 const path = require('path');
 
 // URL base de la API y el nombre del archivo local.
