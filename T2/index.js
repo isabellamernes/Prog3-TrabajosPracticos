@@ -9,7 +9,7 @@ const fs = require("fs");
 const API_URL = "https://fakestoreapi.com/products";
 
 // =======================
-// 📌 FUNCIONES FETCH
+//  FUNCIONES FETCH
 // =======================
 
 // Obtener todos los productos
@@ -95,7 +95,7 @@ function removeExpensiveProducts(filename, maxPrice) {
 }
 
 // =======================
-// 📌 MAIN
+//  MAIN
 // =======================
 async function main() {
   // --- FETCH ---
@@ -124,3 +124,4 @@ async function main() {
 }
 
 main();
+
