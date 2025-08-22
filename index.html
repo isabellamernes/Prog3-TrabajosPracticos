@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TPs de Programación 3</title>
+    <title>TPs de Programación 3 - UNER</title>
     <link rel="stylesheet" href="public/styles.css" />
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="container header-content">
             <div class="header-text">
                 <h1 class="logo">💻 Programación 3 - UNER</h1>
+            </div>
+
+            <div class="nav-wrapper">
                 <nav class="nav">
                     <ul>
                         <li><a href="#integrantes">Integrantes</a></li>
                         <li><a href="#trabajos">Trabajos Prácticos</a></li>
                     </ul>
                 </nav>
+
+                <div class="header-image">
+                    <img src="public/header.png" alt="Imagen representativa del curso">
+                </div>
             </div>
-            <div class="header-image">
-                <img src="public/iso.jpg" alt="Imagen representativa">
-            </div>
+
+            <button class="menu-toggler" aria-label="Abrir menú">☰</button>
         </div>
     </header>
 
+    <!-- Main -->
     <main class="main">
         <!-- Sección Integrantes -->
         <section id="integrantes" class="container integrantes-section">
             <h2>👥 Integrantes del Grupo G</h2>
             <div class="integrantes-cards">
                 <div class="card integrante-card">
-                    <img src="public\jona.jpeg" alt="Juan Pérez">
+                    <img src="public/jona.jpeg" alt="Soto Jonatan">
                     <div class="card-body">
                         <h3>Soto Jonatan</h3>
                         <p>Usuario GIT: JONI4567/JESOTO</p>
@@ -38,7 +46,7 @@
                 </div>
 
                 <div class="card integrante-card">
-                    <img src="public\isa.jpg" alt="María Gómez">
+                    <img src="public/isa.jpg" alt="Mernes Eileen Isabella">
                     <div class="card-body">
                         <h3>Mernes Eileen Isabella</h3>
                         <p>Usuario GIT: isabellamernes</p>
@@ -46,10 +54,10 @@
                 </div>
 
                 <div class="card integrante-card">
-                    <img src="public/lucas.jpg" alt="Lucas Fernández">
+                    <img src="public/mica.png" alt="Gomez Micaela">
                     <div class="card-body">
-                        <h3>Lucas Fernández</h3>
-                        <p>Tester QA</p>
+                        <h3>Gomez Micaela</h3>
+                        <p>Usuario GIT: Mica16Gomez</p>
                     </div>
                 </div>
 
@@ -67,14 +75,19 @@
             </a>
         </section>
 
-        <!-- Sección Trabajos -->
-        <section id="trabajos" class="container">
+        <!-- Sección Trabajos Prácticos -->
+        <section id="trabajos" class="container trabajos-section">
             <h2>📚 Trabajos Prácticos</h2>
             <div class="card-list">
                 <article class="card">
                     <h3>TP N°1</h3>
                     <p>Primer trabajo práctico, esperamos cumplir con las expectativas.</p>
-                    <a class="btn" href="TP1">Ver TP</a>
+                    <a class="btn" href="TP1/index.html">Ver TP</a>
+                </article>
+                <article class="card">
+                    <h3>TP N°2</h3>
+                    <p>Segundo trabajo práctico, desarrollando habilidades avanzadas.</p>
+                    <a class="btn" href="TP2/index.html">Ver TP</a>
                 </article>
             </div>
         </section>
@@ -87,6 +100,14 @@
         </div>
     </footer>
 
-    <script src="TP N°1/gestionDatos.js"></script>
-</body>
-</html>
+    <!-- Scripts -->
+    <script src="TP1/gestionDatos.js"></script>
+    <script src="TP2/TP2.js"></script>
+    <script>
+        // Toggle menú responsive
+        const toggler = document.querySelector('.menu-toggler');
+        const nav = document.querySelector('.nav');
+
+        toggler.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        })
