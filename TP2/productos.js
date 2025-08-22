@@ -9,11 +9,11 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 
 const URL_PRODUCTOS = 'https://fakestoreapi.com/products';
-const URL_LOGIN     = 'https://fakestoreapi.com/auth/login';
+// const URL_LOGIN     = 'https://fakestoreapi.com/auth/login'; // (no se usa en /products)
 const ARCHIVO_JSON  = path.join(__dirname, 'inventario.json');
 
 // Estado de autenticación 
-let tokenJWT = null;
+// let tokenJWT = null; // (eliminado: /products no requiere autenticación)
 
 //  Utilidades 
 function asegurarOk(respuesta) {
@@ -36,11 +36,11 @@ async function escribirJSON(ruta, datos) {
   await fs.writeFile(ruta, JSON.stringify(datos, null, 2), 'utf8');
 }
 
-/** Envoltura de fetch con headers y token si existe */
+/** Envoltura de fetch con headers ~y token si existe~ (sin token) */
 async function llamarApi(sufijo = '', opciones = {}) {
   const headersBase = { 'Content-Type': 'application/json; charset=utf-8' };
   const headers = { ...headersBase, ...(opciones.headers || {}) };
-  if (tokenJWT) headers.Authorization = `Bearer ${tokenJWT}`;
+  // if (tokenJWT) headers.Authorization = `Bearer ${tokenJWT}`; // (eliminado)
 
   const respuesta = await fetch(`${URL_PRODUCTOS}${sufijo}`, { ...opciones, headers });
   asegurarOk(respuesta);
@@ -48,19 +48,7 @@ async function llamarApi(sufijo = '', opciones = {}) {
 }
 
 //  Autenticación 
-
-async function autenticacion(credenciales) {
-  const respuesta = await fetch(URL_LOGIN, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(credenciales)
-  });
-  asegurarOk(respuesta);
-  const datos = await respuesta.json();
-  tokenJWT = datos.token;
-  console.log('Token recibido (preview):', tokenJWT?.slice(0, 12) + '...');
-  return tokenJWT;
-}
+// async function autenticacion(credenciales) { /* (eliminado) */ }
 
 // ===== Fetch API =====
 async function obtenerTodos() {
@@ -113,8 +101,8 @@ async function eliminarMayoresA(precioTope) {
 // ===== Demostración completa =====
 (async function main() {
   try {
-    console.log('0) Autenticación');
-    await autenticacion({ username: 'johnd', password: 'm38rmF$' });
+    // console.log('0) Autenticación'); // (eliminado)
+    // await autenticacion({ username: 'johnd', password: 'm38rmF$' }); // (eliminado)
 
     // 1) GET – todos
     console.log('\n1) GET – todos');
@@ -132,7 +120,7 @@ async function eliminarMayoresA(precioTope) {
     console.log('\n3) POST – crear producto');
     const creado = await crearProducto({
       title: 'Silla Ergonómica XR-12',
-      price: '$152.000',
+      price: 152.0, // número (la API espera número)
       description: 'Respaldo alto, soporte lumbar ajustable.',
       image: 'https://sillaergonomica.com/silla.jpg',
       category: 'Muebles'
@@ -145,19 +133,17 @@ async function eliminarMayoresA(precioTope) {
     const producto = await obtenerPorId(idProducto);
     console.log(`   → ${producto.id} | ${producto.title} | $${producto.price}`);
 
-
     // 5) DELETE – por id
     const idAEliminar = 3; // ← cambiá este valor
     console.log(`\n5) DELETE – por id (id=${idAEliminar})`);
     const borrado = await eliminarPorId(idAEliminar);
     console.log('   → respuesta DELETE:', borrado);
 
-
     // 6) PUT – actualizar por id (id=6)
     console.log('\n6) PUT – actualizar por id (id=6)');
     const actualizado = await actualizarPorId(6, {
       title: 'Producto 6 – Actualizado',
-      price: '$200.000'
+      price: 200.0 // número
     });
     console.log('   → respuesta PUT:', actualizado);
 
