@@ -1,0 +1,28 @@
+{
+  "name": "reserva-servicios",
+  "version": "1.0.0",
+  "description": "aplicación de reservas casa de cumpleaños",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "des": "node --watch index.js"
+  },
+  "author": "eileen mernes",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "handlebars": "^4.7.8",
+    "mysql2": "^3.14.5",
+    "nodemailer": "^7.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabellamernes/Prog3-TrabajosPracticos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isabellamernes/Prog3-TrabajosPracticos/issues"
+  },
+  "homepage": "https://github.com/isabellamernes/Prog3-TrabajosPracticos#readme"
+}
