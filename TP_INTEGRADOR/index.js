@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 import { fileURLToPath} from 'url';
 import { readFile } from 'fs/promises';
 import path from 'path';
-import salonesRoutes from './routes/salones.routes.js'; // IMPORTA LA RUTA DE SALONES
+import salonesRoutes from './routes/salon.routes.js'; // IMPORTA LA RUTA DE SALONES
 
 // instancia express
 const app = express();
