@@ -1,4 +1,4 @@
-// En un archivo: middlewares/verificar-jwt.js
+// middlewares/verificar-jwt.js
 
 import jwt from 'jsonwebtoken';
 

@@ -10,7 +10,7 @@ export const validarCampos = (req, res, next) => {
     next();
 };
 
-// Cambia el nombre de la variable exportada aquí
+
 export const validacionesPostSalon = [
     check('titulo', 'El título es obligatorio y debe ser un texto.').not().isEmpty().isString(),
     check('direccion', 'La dirección es obligatoria y debe ser un texto.').not().isEmpty().isString(),
@@ -19,7 +19,7 @@ export const validacionesPostSalon = [
     validarCampos
 ];
 
-// Y cambia el nombre de la variable exportada aquí también
+
 export const validacionesPutSalon = [
     check('titulo', 'El título debe ser un texto.').optional().isString(),
     check('direccion', 'La dirección debe ser un texto.').optional().isString(),
