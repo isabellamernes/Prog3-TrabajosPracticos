@@ -4,7 +4,6 @@ import nodemailer from 'nodemailer';
 import { fileURLToPath} from 'url';
 import { readFile } from 'fs/promises';
 import path from 'path';
-import pool from './db/conexion.js';
 import salonesRoutes from './routes/salones.routes.js'; // IMPORTA LA RUTA DE SALONES
 
 // instancia express

@@ -5,75 +5,74 @@ import pool from '../db/conexion.js';
 /**
  * Obtiene todos los salones activos.
  */
-const getAllSalones = async () => {
-  const [rows] = await pool.query('SELECT * FROM salones WHERE activo = 1');
-  return rows;
+const obtenerTodos = async () => {
+  const [filas] = await pool.query('SELECT * FROM salones WHERE activo = 1');
+  return filas;
 };
 
 /**
  * Obtiene un salón activo por su ID.
  */
-const getSalonById = async (id) => {
-  const [rows] = await pool.query('SELECT * FROM salones WHERE salon_id = ? AND activo = 1', [id]);
-  return rows[0];
+const obtenerPorId = async (id) => {
+  const [filas] = await pool.query('SELECT * FROM salones WHERE salon_id = ? AND activo = 1', [id]);
+  return filas[0];
 };
 
 /**
  * Crea un nuevo salón.
  */
-const createSalon = async (newSalon) => {
-  const { titulo, direccion, latitud, longitud, capacidad, importe } = newSalon;
-  const [result] = await pool.query(
+const crear = async (nuevoSalon) => {
+  const { titulo, direccion, latitud, longitud, capacidad, importe } = nuevoSalon;
+  const [resultado] = await pool.query(
     'INSERT INTO salones (titulo, direccion, latitud, longitud, capacidad, importe) VALUES (?, ?, ?, ?, ?, ?)',
     [titulo, direccion, latitud, longitud, capacidad, importe]
   );
-  return result.insertId;
+  return resultado.insertId;
 };
 
 /**
  * Actualiza un salón existente.
  */
-const updateSalon = async (id, updatedSalon) => {
-  const updates = { ...updatedSalon };
+const actualizar = async (id, datosSalon) => {
+  const campos = { ...datosSalon };
   
-  // Excluye campos que no deben ser actualizados directamente por el usuario
-  delete updates.salon_id;
-  delete updates.creado;
-  delete updates.modificado;
-  delete updates.activo;
+  delete campos.salon_id;
+  delete campos.creado;
+  delete campos.modificado;
+  delete campos.activo;
 
-  const fields = Object.keys(updates);
-  if (fields.length === 0) {
-    return false; // No hay nada que actualizar
+  const claves = Object.keys(campos);
+  if (claves.length === 0) {
+    return false;
   }
 
-  const setClause = fields.map(field => `${field} = ?`).join(', ');
+  const clausulaSet = claves.map(clave => `${clave} = ?`).join(', ');
 
-  const query = `
+  const consulta = `
     UPDATE salones 
-    SET ${setClause}, modificado = CURRENT_TIMESTAMP() 
+    SET ${clausulaSet}, modificado = CURRENT_TIMESTAMP() 
     WHERE salon_id = ? AND activo = 1
   `;
 
-  const [result] = await pool.query(query, [...Object.values(updates), id]);
-  return result.affectedRows > 0;
+  const [resultado] = await pool.query(consulta, [...Object.values(campos), id]);
+  return resultado.affectedRows > 0;
 };
 
 /**
- * Realiza un borrado lógico (soft delete) de un salón.
+ * Realiza un borrado lógico de un salón.
  */
-const deleteSalon = async (id) => {
-  const [result] = await pool.query(
+const eliminar = async (id) => {
+  const [resultado] = await pool.query(
     'UPDATE salones SET activo = 0, modificado = CURRENT_TIMESTAMP() WHERE salon_id = ? AND activo = 1', 
     [id]
   );
-  return result.affectedRows > 0;
+  return resultado.affectedRows > 0;
 };
 
 export default {
-  getAllSalones,
-  getSalonById,
-  createSalon,
-  updateSalon,
-  deleteSalon,
+  obtenerTodos,
+  obtenerPorId,
+  crear,
+  actualizar,
+  eliminar,
 };
