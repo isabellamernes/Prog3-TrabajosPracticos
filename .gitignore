@@ -1,0 +1,19 @@
+# Dependencias de Node
+node_modules/
+npm-debug.log*
+package-lock.json*
+
+# Archivos de entorno
+.env
+.env.*
+
+# Carpetas de build o dist
+dist/
+build/
+
+# Logs y temporales
+*.log
+.DS_Store
+
+# Cobertura de tests
+coverage/
