@@ -1,0 +1,24 @@
+meta {
+  name: Modifica salon
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{apiUrl}}/api/v1/salones/7
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "titulo": "test",
+    "direccion": "direccion test",
+    "capacidad": 500,
+    "importe": 200000
+  }
+}
+
+settings {
+  encodeUrl: true
+}
