@@ -7,5 +7,6 @@ dotenv.config();
 const PORT = process.env.PUERTO || 3000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor iniciado en puerto ${PORT}`);
+  console.log(` Servidor iniciado en puerto ${PORT}`);
+
 });
