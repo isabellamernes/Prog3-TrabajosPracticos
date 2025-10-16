@@ -9,8 +9,8 @@ export const enviarMail = async (para, asunto, mensajeHTML) => {
       port: 587,
       secure: true,
       auth: {
-        user: process.env.USERCORREO, // tu correo
-        pass: process.env.PASSCORREO, // tu contraseña o app password
+        user: process.env.USERCORREO, //  correo
+        pass: process.env.PASSCORREO, //  contraseña o app password
       },
     });
 
@@ -31,4 +31,5 @@ export const enviarMail = async (para, asunto, mensajeHTML) => {
     return false;
   }
 };
+
 
