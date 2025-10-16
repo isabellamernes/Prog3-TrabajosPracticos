@@ -14,10 +14,11 @@ try {
     database: process.env.DATABASE,
   });
 
-  console.log("✅ Conexión exitosa a la base de datos MySQL");
+  console.log(" Conexión exitosa a la base de datos MySQL");
 } catch (error) {
-  console.error("❌ Error de conexión a MySQL:", error);
+  console.error(" Error de conexión a MySQL:", error);
 }
 
 // Exportamos la conexión para usarla en otros archivos
 export { conexion };
+
