@@ -1,53 +1,29 @@
 import Salones from "../db/salones.js";
-import { conexion } from "../db/conexion.js";
-
-
 
 export default class SalonesServicio {
   constructor() {
-    this.Salones = new Salones();
+    this.salones = new Salones();
   }
 
   async buscarTodos() {
-    const sql = "SELECT * FROM salones WHERE activo = 1";
-    const [rows] = await conexion.execute(sql);
-    return rows;
+    return await this.salones.buscarTodos();
   }
 
-  async buscarPorId(id) {
-    const sql = "SELECT * FROM salones WHERE activo = 1 AND salon_id = ?";
-    const [rows] = await conexion.execute(sql, [id]);
-    return rows[0] || null;
+  async buscarPorId(salon_id) {
+    return await this.salones.buscarPorId(salon_id);
   }
 
-  async crear({ titulo, direccion, capacidad, importe }) {
-    const sql =
-      "INSERT INTO salones (titulo, direccion, capacidad, importe) VALUES (?, ?, ?, ?)";
-    const [result] = await conexion.execute(sql, [
-      titulo,
-      direccion,
-      capacidad,
-      importe,
-    ]);
-    return result.insertId;
+  async crear(salon) {
+    return await this.salones.crear(salon);
   }
 
-  async editar(id, { titulo, direccion, capacidad, importe }) {
-    const sql =
-      "UPDATE salones SET titulo = ?, direccion = ?, capacidad = ?, importe = ? WHERE salon_id = ?";
-    const [result] = await conexion.execute(sql, [
-      titulo,
-      direccion,
-      capacidad,
-      importe,
-      id,
-    ]);
-    return result.affectedRows > 0;
+  async modificar(salon_id, datos) {
+    const existe = await this.salones.buscarPorId(salon_id);
+    if (!existe) return null;
+    return await this.salones.modificar(salon_id, datos);
   }
 
-  async eliminar(id) {
-    const sql = "UPDATE salones SET activo = 0 WHERE salon_id = ?";
-    const [result] = await conexion.execute(sql, [id]);
-    return result.affectedRows > 0;
+  async eliminar(salon_id) {
+    return await this.salones.eliminar(salon_id);
   }
 }
