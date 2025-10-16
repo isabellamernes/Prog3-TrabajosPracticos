@@ -24,10 +24,11 @@ export const enviarMail = async (para, asunto, mensajeHTML) => {
 
     // Enviar correo
     const info = await transporter.sendMail(mailOptions);
-    console.log('📨 Email enviado:', info.messageId);
+    console.log(' Email enviado:', info.messageId);
     return true;
   } catch (error) {
-    console.error('❌ Error al enviar correo:', error);
+    console.error(' Error al enviar correo:', error);
     return false;
   }
 };
+
