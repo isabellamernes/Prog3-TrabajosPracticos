@@ -1,0 +1,40 @@
+meta {
+  name: Crear reserva
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{apiUrl}}/api/v1/reservas
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "fecha_reserva": "2025-10-19",
+    "salon_id": "1",
+    "usuario_id": "2",
+    "turno_id": "3",
+    "foto_cumpleaniero": "foto_cumpleaniero",
+    "tematica": "Pelotas",
+    "importe_salon": "80000",
+    "importe_total": "95000",
+    "servicios": [
+      {
+        "servicio_id": 4,
+        "importe": 15000
+      },
+      {
+        "servicio_id": 5,
+        "importe": 15000
+      }
+    ]
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

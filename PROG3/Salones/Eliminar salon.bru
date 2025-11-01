@@ -1,0 +1,16 @@
+meta {
+  name: Eliminar salon
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{apiUrl}}/api/v1/salones/9
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

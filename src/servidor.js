@@ -1,3 +1,5 @@
+//importo la confirguracion de la aplicacion express -- comentario mica gomez -- no borrar
+
 import app from './reservas.js';
 
 process.loadEnvFile();

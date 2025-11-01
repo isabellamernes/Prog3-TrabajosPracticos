@@ -1,7 +1,7 @@
 meta {
   name: Crear Salon
   type: http
-  seq: 5
+  seq: 4
 }
 
 post {
@@ -12,13 +12,14 @@ post {
 
 body:json {
   {
-    "titulo": "Salon infantil",
-    "direccion": "Mendoza",
-    "capacidad": 30,
+    "titulo": "Salon peruano",
+    "direccion": "tiso",
+    "capacidad": "dos",
     "importe": 150000
   }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

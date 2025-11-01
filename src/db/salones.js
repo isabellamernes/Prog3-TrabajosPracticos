@@ -10,7 +10,7 @@ export default class Salones {
     }
 
     buscarPorId = async(salon_id) => {
-        const sql = 'SELECT * FROM salones WHERE activo = 1 AND salon_id = ?';
+        const sql = 'SELECT * FROM salones WHERE activo = 1 AND salon_id = ?'; //para evitar las inyecciones SQL -- Comentario mica gomez-- no borrar
         const [salon] = await conexion.execute(sql, [salon_id]);
 
         if(salon.length === 0){
