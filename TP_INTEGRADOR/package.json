@@ -1,22 +1,39 @@
 {
-  "name": "app-reservas",
+  "name": "prog3-trabajospracticos",
   "version": "1.0.0",
-  "description": "aplicación de reservas casa de cumpleaños",
-  "main": "src/reservas.js",
+  "description": "aplicacion para gestion de salones de fiestas infantiles",
+  "main": "servidor.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "des": "node --watch src/servidor.js"
   },
-  "author": "micaela gomez",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabellamernes/Prog3-TrabajosPracticos.git"
+  },
+  "keywords": [],
+  "author": "eileen mernes",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isabellamernes/Prog3-TrabajosPracticos/issues"
+  },
+  "homepage": "https://github.com/isabellamernes/Prog3-TrabajosPracticos#readme",
   "dependencies": {
     "apicache": "^1.6.3",
+    "bcryptjs": "^3.0.3",
+    "csv-writer": "^1.6.0",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "express-validator": "^7.2.1",
+    "express-validator": "^7.3.0",
     "handlebars": "^4.7.8",
-    "mysql2": "^3.15.1",
-    "nodemailer": "^7.0.9"
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.15.3",
+    "nodemailer": "^7.0.10",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "puppeteer": "^24.28.0"
   }
 }
