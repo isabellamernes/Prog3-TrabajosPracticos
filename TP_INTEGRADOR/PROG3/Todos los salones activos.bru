@@ -1,0 +1,15 @@
+meta {
+  name: Todos los salones activos
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{apiUrl}}/api/v1/salones
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
