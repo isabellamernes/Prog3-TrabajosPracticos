@@ -1,7 +1,6 @@
-// src/servicios/turnosService.js
 import TurnosDB from "../db/turnos.js";
 
-export default class TurnosService {
+export default class TurnosServicio {
     constructor() {
         this.turnosDB = new TurnosDB();
     }

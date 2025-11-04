@@ -1,4 +1,3 @@
-// src/reservas.js
 import express from 'express';
 import passport from 'passport';
 import morgan from 'morgan';
@@ -6,7 +5,7 @@ import fs from 'fs';
 
 import { estrategia, validacion } from './config/passport.js';
 
-import { router as v1AuthRouter } from './v1/rutas/authRoutes.js';
+import { router as v1AuthRutas } from './v1/rutas/authRutas.js';
 import { router as v1SalonesRutas } from './v1/rutas/salonesRutas.js';
 import { router as v1ReservasRutas } from './v1/rutas/reservasRutas.js';
 import { router as v1ServiciosRutas } from './v1/rutas/serviciosRutas.js';
@@ -26,7 +25,7 @@ app.use(morgan('combined'))
 app.use(morgan('combined', { stream: log })) 
 
 // Ruta pública
-app.use('/api/v1/auth', v1AuthRouter); 
+app.use('/api/v1/auth', v1AuthRutas); 
 
 // Rutas protegidas (requieren token JWT)
 app.use(passport.authenticate('jwt', { session: false }));

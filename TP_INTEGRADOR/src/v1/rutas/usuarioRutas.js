@@ -1,12 +1,9 @@
-// src/v1/rutas/usuarioRutas.js
 import express from 'express';
 import { check } from 'express-validator';
 import { validarCampos } from '../../middlewares/validarCampos.js';
 import autorizarUsuarios from '../../middlewares/autorizarUsuarios.js';
-// 1. Importas el controlador en PLURAL
 import UsuariosControlador from '../../controladores/usuarioControlador.js';
 
-// 2. Creas la instancia usando el mismo nombre en PLURAL
 const controlador = new UsuariosControlador();
 const router = express.Router();
 

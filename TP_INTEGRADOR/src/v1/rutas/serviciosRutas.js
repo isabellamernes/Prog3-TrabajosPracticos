@@ -1,4 +1,3 @@
-// src/v1/rutas/serviciosRutas.js
 import express from 'express';
 import { check } from 'express-validator';
 import { validarCampos } from '../../middlewares/validarCampos.js';
@@ -9,11 +8,9 @@ const controlador = new ServiciosControlador();
 const router = express.Router();
 
 // 1=Admin, 2=Empleado, 3=Cliente
-// Listar (Todos los roles)
 router.get('/', autorizarUsuarios([1, 2, 3]), controlador.buscarTodos);
 router.get('/:servicio_id', autorizarUsuarios([1, 2, 3]), controlador.buscarPorID);
 
-// Crear (Admin y Empleado)
 router.post('/', 
     autorizarUsuarios([1, 2]),
     [
@@ -24,7 +21,6 @@ router.post('/',
     controlador.crear
 );
 
-// Modificar (Admin y Empleado)
 router.put('/:servicio_id', 
     autorizarUsuarios([1, 2]),
     [
@@ -35,7 +31,6 @@ router.put('/:servicio_id',
     controlador.modificar
 );
 
-// Eliminar (Admin y Empleado)
 router.delete('/:servicio_id', 
     autorizarUsuarios([1, 2]), 
     controlador.eliminar

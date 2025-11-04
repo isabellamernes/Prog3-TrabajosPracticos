@@ -1,4 +1,3 @@
-// src/controladores/reservasControlador.js
 import ReservasServicio from "../servicios/reservasServicio.js";
 const formatosPermitidos = ['pdf', 'csv'];
 
@@ -9,12 +8,11 @@ export default class ReservasControlador{
 
     crear = async (req, res) => {
         try {
-            // Toma el usuario_id del token (inyectado por Passport)
             const usuario_id = req.user.usuario_id;
             
             const reserva = {
                 ...req.body,
-                usuario_id: usuario_id // Añade el ID del usuario autenticado
+                usuario_id: usuario_id
             };
 
             const nuevaReserva = await this.reservasServicio.crear(reserva)
@@ -40,7 +38,6 @@ export default class ReservasControlador{
     
     buscarTodos = async (req, res) => {
         try {
-            // Pasa el objeto 'user' completo al servicio
             const reservas = await this.reservasServicio.buscarTodos(req.user);
             res.json({
                 estado: true, 

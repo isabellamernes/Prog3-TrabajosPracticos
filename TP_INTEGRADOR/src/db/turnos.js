@@ -1,4 +1,3 @@
-// src/db/turnos.js
 import { conexion } from "./conexion.js";
 
 export default class TurnosDB {

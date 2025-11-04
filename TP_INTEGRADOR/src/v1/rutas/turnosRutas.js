@@ -1,4 +1,3 @@
-// src/v1/rutas/turnosRutas.js
 import express from 'express';
 import { check } from 'express-validator';
 import { validarCampos } from '../../middlewares/validarCampos.js';
@@ -9,11 +8,9 @@ const controlador = new TurnosControlador();
 const router = express.Router();
 
 // 1=Admin, 2=Empleado, 3=Cliente
-// Listar (Todos los roles)
 router.get('/', autorizarUsuarios([1, 2, 3]), controlador.buscarTodos);
 router.get('/:turno_id', autorizarUsuarios([1, 2, 3]), controlador.buscarPorID);
 
-// Crear (Admin y Empleado)
 router.post('/', 
     autorizarUsuarios([1, 2]),
     [
@@ -25,7 +22,6 @@ router.post('/',
     controlador.crear
 );
 
-// Modificar (Admin y Empleado)
 router.put('/:turno_id', 
     autorizarUsuarios([1, 2]),
     [
@@ -37,7 +33,6 @@ router.put('/:turno_id',
     controlador.modificar
 );
 
-// Eliminar (Admin y Empleado)
 router.delete('/:turno_id', 
     autorizarUsuarios([1, 2]), 
     controlador.eliminar

@@ -1,4 +1,3 @@
-// src/servicios/reservasServicio.js
 import Reservas from "../db/reservas.js";
 import ReservasServicios from "../db/reservas_servicios.js";
 import NotificacionesServicio from "./notificacionesServicio.js";
@@ -8,9 +7,10 @@ export default class ReservasServicio {
     constructor(){
         this.reserva = new Reservas();
         this.reservas_servicios = new ReservasServicios();
-        this.notificaciones_servicio = new NotificacionesServicio();
+        this.notificacionesServicio = new NotificacionesServicio();
         this.informes = new InformeServicio(); 
     }
+    
     buscarTodos = (usuario) => {
         if(usuario.tipo_usuario < 3){ 
             return this.reserva.buscarTodos();
@@ -42,7 +42,7 @@ export default class ReservasServicio {
         
         try {
             const datosParaNotificacion = await this.reserva.datosParaNotificacion(result.reserva_id);
-            await this.notificacioes_servicios.enviarCorreo(datosParaNotificacion);
+            await this.notificacionesServicio.enviarCorreo(datosParaNotificacion);
         } catch (notificationError) {            
             console.log('Advertencia: No se pudo enviar el correo.');
         }

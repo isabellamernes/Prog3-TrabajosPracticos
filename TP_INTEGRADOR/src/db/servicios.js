@@ -1,4 +1,3 @@
-// src/db/servicios.js
 import { conexion } from "./conexion.js";
 
 export default class ServiciosDB {
@@ -33,6 +32,6 @@ export default class ServiciosDB {
     eliminar = async (servicio_id) => {
         const sql = 'UPDATE servicios SET activo = 0 WHERE servicio_id = ? AND activo = 1';
         const [result] = await conexion.execute(sql, [servicio_id]);
-        return result.affectedRows; // Devuelve 1 si tuvo éxito, 0 si no
+        return result.affectedRows; 
     }
 }

@@ -1,4 +1,3 @@
-// src/db/reservas_servicios.js
 import { conexion } from "./conexion.js";
 
 export default class ReservasServicios {

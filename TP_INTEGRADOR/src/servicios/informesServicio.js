@@ -1,4 +1,3 @@
-// src/services/informesServicio.js
 import { createObjectCsvWriter } from 'csv-writer';
 import puppeteer from "puppeteer"; 
 import handlebars from 'handlebars';
@@ -36,21 +35,17 @@ export default class InformeServicio {
 
     informeReservasPdf = async (datosReporte) => {
         try{
-            // 1. Lee la plantilla HBS
             const plantillaPath  = path.join(__dirname, '../utiles/handlebars/informe.hbs');
             const plantillaHtml = fs.readFileSync(plantillaPath , 'utf8');
             
-            // 2. Compila la plantilla con los datos
             const template = handlebars.compile(plantillaHtml);
-            const htmlFinal = template({ reservas: datosReporte }); // Pasamos los datos
+            const htmlFinal = template({ reservas: datosReporte }); 
             
-            // 3. Inicia Puppeteer
             let browser = await puppeteer.launch({
                 headless: true,
                 args: ['--no-sandbox', '--disable-setuid-sandbox']
             });
 
-            // 4. Genera el PDF en memoria (Buffer)
             let page = await browser.newPage();
             await page.setContent(htmlFinal);
             const buffer = await page.pdf({
@@ -59,8 +54,6 @@ export default class InformeServicio {
             });
 
             await browser.close();
-
-            // 5. Devuelve el buffer
             return buffer;
 
         }catch(error){

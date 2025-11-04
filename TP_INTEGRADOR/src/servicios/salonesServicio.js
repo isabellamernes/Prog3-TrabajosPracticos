@@ -1,8 +1,6 @@
 import Salones from "../db/salones.js";
 
-
 export default class SalonesServicio {
-
     constructor(){
         this.salones = new Salones();
     }
@@ -15,9 +13,8 @@ export default class SalonesServicio {
         return this.salones.buscarPorId(salon_id);
     }
 
-    modificar = (salon_id, datos) => {
-        // verifico si el id de salon existe
-        const existe = this.salones.buscarPorId(salon_id);
+    modificar = async (salon_id, datos) => {
+        const existe = await this.salones.buscarPorId(salon_id);
         if(!existe){
             return null;
         }
@@ -29,7 +26,6 @@ export default class SalonesServicio {
     }
 
     eliminar = async (salon_id) => {
-    return await this.salones.eliminar(salon_id);
+        return await this.salones.eliminar(salon_id);
     };
-
 }

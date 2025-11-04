@@ -1,4 +1,3 @@
-// src/v1/rutas/reservasRutas.js
 import express from 'express';
 import { check } from 'express-validator';
 import { validarCampos } from '../../middlewares/validarCampos.js';
@@ -47,5 +46,6 @@ router.put('/:reserva_id',
 router.delete('/:reserva_id',
     autorizarUsuarios([1]), 
     reservasControlador.eliminar 
-)
+);
+
 export { router };

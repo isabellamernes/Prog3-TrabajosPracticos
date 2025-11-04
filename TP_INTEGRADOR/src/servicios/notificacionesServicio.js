@@ -1,4 +1,3 @@
-// src/servicios/notificacionesServicio.js
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
@@ -14,7 +13,6 @@ export default class NotificacionesServicio {
 
         const template = handlebars.compile(plantilla);
         
-        // Datos del Stored Procedure del profesor
         const datos = {
             fecha: datosCorreo[0].map(a => a.fecha),
             salon: datosCorreo[0].map(a => a.salon),
@@ -31,7 +29,6 @@ export default class NotificacionesServicio {
             }
         });
 
-        // Correos de los Administradores (del Stored Procedure)
         const correosAdmin = datosCorreo[1].map(a => a.correoAdmin);
         const destinatarios = correosAdmin.join(', ');
 

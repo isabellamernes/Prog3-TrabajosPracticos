@@ -1,4 +1,3 @@
-// src/controladores/usuariosControlador.js
 import UsuariosService from "../servicios/usuariosServicio.js";
 
 export default class UsuariosControlador {

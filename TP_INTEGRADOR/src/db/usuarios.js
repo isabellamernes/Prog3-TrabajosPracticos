@@ -1,4 +1,3 @@
-// src/db/usuarios.js
 import { conexion } from "./conexion.js";
 
 export default class Usuarios {
@@ -38,7 +37,7 @@ export default class Usuarios {
         const camposPermitidos = ['nombre', 'apellido', 'nombre_usuario', 'tipo_usuario', 'celular', 'foto'];
         const camposAActualizar = Object.keys(datos).filter(key => camposPermitidos.includes(key));
         
-        if (camposAActualizar.length === 0) return null; // Nada que actualizar
+        if (camposAActualizar.length === 0) return null; 
 
         const valoresAActualizar = camposAActualizar.map(key => datos[key]);
         const setValores = camposAActualizar.map(campo => `${campo} = ?`).join(', ');

@@ -1,4 +1,3 @@
-// src/db/reservas.js
 import { conexion } from "./conexion.js";
 
 export default class Reservas {
@@ -42,9 +41,7 @@ export default class Reservas {
         return this.buscarPorId(result.insertId);
     }
 
-    // --- NUEVOS MÉTODOS ---
     modificar = async (reserva_id, datos) => {
-        // Campos que el Admin puede modificar
         const camposPermitidos = ['fecha_reserva', 'salon_id', 'usuario_id', 'turno_id', 'foto_cumpleaniero', 'tematica', 'importe_total'];
         const camposAActualizar = Object.keys(datos).filter(key => camposPermitidos.includes(key));
 

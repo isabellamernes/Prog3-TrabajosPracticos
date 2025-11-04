@@ -1,4 +1,3 @@
-// src/middlewares/autorizarUsuarios.js
 export default function autorizarUsuarios ( perfilAutorizados = [] ) {
     return (req, res, next) => {
         const usuario = req.user;

@@ -1,9 +1,8 @@
-// src/controladores/serviciosControlador.js
-import ServiciosService from "../servicios/serviciosService.js";
+import ServiciosServicio from "../servicios/serviciosServicio.js";
 
 export default class ServiciosControlador {
     constructor() {
-        this.serviciosService = new ServiciosService();
+        this.serviciosService = new ServiciosServicio();
     }
 
     buscarTodos = async (req, res) => {

@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
 
-export default class AuthController{
+export default class AuthControlador{
     login = async (req, res) => {        
         passport.authenticate('local', {session: false}, (err, usuario, info) => {
             if (err || !usuario) {
@@ -15,7 +15,6 @@ export default class AuthController{
                 if(err){
                     res.send(err);
                 }
-                // ¡Asegúrate de tener JWT_SECRET en tu archivo .env!
                 const token = jwt.sign(usuario, process.env.JWT_SECRET, { expiresIn: '1h'});
 
                 return res.json({

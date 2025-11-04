@@ -1,9 +1,8 @@
-// src/controladores/turnosControlador.js
-import TurnosService from "../servicios/turnosService.js";
+import TurnosServicio from "../servicios/turnosServicio.js";
 
 export default class TurnosControlador {
     constructor() {
-        this.turnosService = new TurnosService();
+        this.turnosService = new TurnosServicio();
     }
 
     buscarTodos = async (req, res) => {

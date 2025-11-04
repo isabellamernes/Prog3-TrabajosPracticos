@@ -1,4 +1,3 @@
-// src/servicios/usuariosService.js
 import Usuarios from "../db/usuarios.js";
 
 export default class UsuariosService {
@@ -11,7 +10,6 @@ export default class UsuariosService {
     buscarPorId = (usuario_id) => {
         return this.usuarios.buscarPorId(usuario_id);
     }
-
     buscarTodos = () => {
         return this.usuarios.buscarTodos();
     }
