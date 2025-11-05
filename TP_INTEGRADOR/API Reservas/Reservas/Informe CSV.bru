@@ -1,13 +1,17 @@
 meta {
-  name: Listar Usuarios
+  name: Informe CSV
   type: http
-  seq: 1
+  seq: 5
 }
 
 get {
-  url: {{baseUrl}}/api/v1/usuarios
+  url: {{baseUrl}}/api/v1/reservas/informe?formato=csv
   body: none
   auth: bearer
+}
+
+params:query {
+  formato: csv
 }
 
 auth:bearer {

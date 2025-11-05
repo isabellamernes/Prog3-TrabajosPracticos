@@ -22,7 +22,7 @@
             margin-top: 20px;
         }
         th {
-            background-color: #2980b9;
+            background-color: #590ca1;
             color: #fff;
             padding: 8px;
             text-align: left;
@@ -37,25 +37,31 @@
     </style>
 </head>
 <body>
-    <h1>📅 Informe de Reservas</h1>
+    <h1>Informe de Reservas</h1>
     <table>
         <thead>
             <tr>
+                <th>Nombre</th>
                 <th>Fecha Reserva</th>
                 <th>Salón</th>
+                <th>Servicios</th>
                 <th>Turno</th>
+                <th>Orden</th>
             </tr>
         </thead>
-        <tbody>
+       <tbody>
             {{#each reservas}}
             <tr>
+                <td>{{this.nombre}}</td>
                 <td>{{this.fecha_reserva}}</td>
-                <td>{{this.titulo}}</td>
+                <td>{{this.salon}}</td>
+                <td>{{this.servicios}}</td>
+                <td>{{this.turno}}</td>
                 <td>{{this.orden}}</td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-    <p class="footer">Programación III - 2025</p>
+    <p class="footer">Grupo G - Programación III - 2025</p>
 </body>
 </html>

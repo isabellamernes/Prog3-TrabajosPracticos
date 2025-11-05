@@ -1,0 +1,27 @@
+meta {
+  name: Crear Servicio
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/v1/servicios
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "descripcion": "Servicio de Catering",
+    "importe": 15000.00
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

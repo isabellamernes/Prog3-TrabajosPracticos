@@ -1,11 +1,11 @@
 meta {
-  name: Listar Usuarios
+  name: Eliminar Salón
   type: http
-  seq: 1
+  seq: 5
 }
 
-get {
-  url: {{baseUrl}}/api/v1/usuarios
+delete {
+  url: {{baseUrl}}/api/v1/salones/14
   body: none
   auth: bearer
 }

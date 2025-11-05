@@ -1,13 +1,17 @@
 meta {
-  name: Listar Usuarios
+  name: Informe PDF
   type: http
-  seq: 1
+  seq: 4
 }
 
 get {
-  url: {{baseUrl}}/api/v1/usuarios
+  url: {{baseUrl}}/api/v1/reservas/informe?formato=pdf
   body: none
   auth: bearer
+}
+
+params:query {
+  formato: pdf
 }
 
 auth:bearer {

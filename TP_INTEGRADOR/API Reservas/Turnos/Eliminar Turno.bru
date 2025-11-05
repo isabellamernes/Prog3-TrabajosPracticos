@@ -1,11 +1,11 @@
 meta {
-  name: Listar Usuarios
+  name: Eliminar Turno
   type: http
-  seq: 1
+  seq: 5
 }
 
-get {
-  url: {{baseUrl}}/api/v1/usuarios
+delete {
+  url: {{baseUrl}}/api/v1/turnos/5
   body: none
   auth: bearer
 }

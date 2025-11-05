@@ -47,7 +47,16 @@ export default class ReservasServicio {
             console.log('Advertencia: No se pudo enviar el correo.');
         }
 
-        return this.reserva.buscarPorId(result.reserva_id);
+        // 1. Busca la reserva principal (ahora con salon_titulo y turno_orden)
+        const reservaCompleta = await this.reserva.buscarPorId(result.reserva_id);
+        if (!reservaCompleta) return null;
+
+        // 2. Busca los servicios asociados usando la nueva función
+       const serviciosCompletos = await this.reservas_servicios.buscarPorReservaId(result.reserva_id);
+
+        // 3. Combina todo y devuelve
+        reservaCompleta.servicios = serviciosCompletos;
+        return reservaCompleta;
     }
 
     modificar = async (reserva_id, datos) => {

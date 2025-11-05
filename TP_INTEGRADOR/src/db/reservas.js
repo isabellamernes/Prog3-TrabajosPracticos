@@ -14,7 +14,21 @@ export default class Reservas {
     }
 
     buscarPorId = async(reserva_id) => {
-        const sql = 'SELECT * FROM reservas WHERE activo = 1 AND reserva_id = ?';
+        const sql =`
+            SELECT 
+                r.*, 
+                s.titulo AS salon_titulo, 
+                t.orden AS turno_orden,
+                CONCAT(t.hora_desde, ' a ', t.hora_hasta) AS turno_horario
+            FROM 
+                reservas r
+            JOIN 
+                salones s ON r.salon_id = s.salon_id
+            JOIN 
+                turnos t ON r.turno_id = t.turno_id
+            WHERE 
+                r.activo = 1 AND r.reserva_id = ?`;
+        ;
         const [reserva] = await conexion.execute(sql, [reserva_id]);
         if(reserva.length === 0){
             return null;

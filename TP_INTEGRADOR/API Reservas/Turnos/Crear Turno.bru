@@ -1,0 +1,28 @@
+meta {
+  name: Crear Turno
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/v1/turnos
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "orden": 1,
+    "hora_desde": "09:00",
+    "hora_hasta": "12:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

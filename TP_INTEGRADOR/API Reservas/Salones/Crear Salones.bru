@@ -1,0 +1,31 @@
+meta {
+  name: Crear Salones
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/v1/salones
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Salón Fiestas del Sol",
+    "direccion": "Av. Rivadavia 123",
+    "capacidad": 100,
+    "importe": 50000.00,
+    "latitud": -31.417,
+    "longitud": -64.183
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

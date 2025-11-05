@@ -1,0 +1,27 @@
+meta {
+  name: Modificar Turno
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/v1/turnos/5
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "orden": 10,
+    "hora_desde": "10:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

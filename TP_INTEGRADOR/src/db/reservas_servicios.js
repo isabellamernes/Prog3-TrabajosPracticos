@@ -17,4 +17,20 @@ export default class ReservasServicios {
             return false;
         }
     }
+
+    buscarPorReservaId = async(reserva_id) => {
+        const sql = `
+            SELECT 
+                s.servicio_id, 
+                s.descripcion, 
+                rs.importe 
+            FROM 
+                reservas_servicios rs
+            JOIN 
+                servicios s ON rs.servicio_id = s.servicio_id
+            WHERE 
+                rs.reserva_id = ? AND s.activo = 1`;
+        const [servicios] = await conexion.execute(sql, [reserva_id]);
+        return servicios;
+    }
 }

@@ -12,15 +12,18 @@ export default class InformeServicio {
     
     informeReservasCsv = async (datosReporte) => {
         try{
-            let ruta = path.resolve(__dirname, '../../utiles'); 
+            let ruta = path.resolve(__dirname, '../utiles'); 
             ruta = path.join(ruta, 'reservas.csv'); 
 
             const csvWriter = createObjectCsvWriter({
                 path: ruta,
                 header: [
-                    {id: 'fecha_reserva', title: 'Fecha reserva'},
-                    {id: 'titulo', title: 'Título'},
-                    {id: 'orden', title: 'Orden'}
+                    { id: 'nombre', title: 'Nombre' },
+                    { id: 'fecha_reserva', title: 'Fecha Reserva' },
+                    { id: 'salon', title: 'Salón' },
+                    { id: 'servicios', title: 'Servicios' },
+                    { id: 'turno', title: 'Turno' },
+                    { id: 'orden', title: 'Orden' }
                 ]
             });
             
