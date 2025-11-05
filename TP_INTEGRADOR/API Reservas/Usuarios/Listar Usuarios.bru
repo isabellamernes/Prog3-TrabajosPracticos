@@ -1,0 +1,20 @@
+meta {
+  name: Listar Usuarios
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/usuarios
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo5LCJ1c3VhcmlvIjoiRWlsZWVuIE1lcm5lcyIsInRpcG9fdXN1YXJpbyI6MSwiaWF0IjoxNzYyMzU1ODMyLCJleHAiOjE3NjIzNTk0MzJ9.EkdiIpYMotQH8PqKdVe8XsmMUEtu2eD648FGxyLwinI"
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

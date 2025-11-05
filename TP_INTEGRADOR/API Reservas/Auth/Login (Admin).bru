@@ -1,0 +1,29 @@
+meta {
+  name: Login (Admin)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/v1/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre_usuario": "eileenmernes",
+    "contrasenia": "1234"
+  }
+}
+
+script:post-response {
+  if(res.body?.token) {
+    bru.setVar('token', res.body.token);
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

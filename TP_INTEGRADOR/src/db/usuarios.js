@@ -34,14 +34,22 @@ export default class Usuarios {
     }
 
     modificar = async (usuario_id, datos) => {
-        const camposPermitidos = ['nombre', 'apellido', 'nombre_usuario', 'tipo_usuario', 'celular', 'foto'];
+        const camposPermitidos = ['nombre', 'apellido', 'nombre_usuario','contrasenia', 'tipo_usuario', 'celular', 'foto'];
         const camposAActualizar = Object.keys(datos).filter(key => camposPermitidos.includes(key));
         
         if (camposAActualizar.length === 0) return null; 
 
         const valoresAActualizar = camposAActualizar.map(key => datos[key]);
-        const setValores = camposAActualizar.map(campo => `${campo} = ?`).join(', ');
         
+        
+        const setValores = camposAActualizar.map(campo => {
+            if (campo === 'contrasenia') {
+                return `${campo} = SHA2(?, 256)`;
+            } else {
+                return `${campo} = ?`;
+            }
+        }).join(', ');
+
         const sql = `UPDATE usuarios SET ${setValores} WHERE usuario_id = ?`;
         const [result] = await conexion.execute(sql, [...valoresAActualizar, usuario_id]);
 
