@@ -18,6 +18,8 @@ export default class NotificacionesService {
         fecha: datosCorreo.fecha,
         salon: datosCorreo.salon,
         turno: datosCorreo.turno,
+        hora_desde: datosCorreo.hora_desde,
+        hora_hasta: datosCorreo.hora_hasta,
       });
 
       const transporter = nodemailer.createTransport({

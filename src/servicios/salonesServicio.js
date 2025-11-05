@@ -16,7 +16,6 @@ export default class SalonesServicio {
     }
 
     modificar = (salon_id, datos) => {
-        // verifico si el id de salon existe
         const existe = this.salones.buscarPorId(salon_id);
         if(!existe){
             return null;
