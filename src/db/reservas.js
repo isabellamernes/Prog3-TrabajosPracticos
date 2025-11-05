@@ -1,4 +1,3 @@
-// src/db/reservas.js
 import { conexion } from "./conexion.js";
 
 export default class Reservas {

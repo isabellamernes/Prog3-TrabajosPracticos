@@ -31,12 +31,12 @@ export default class NotificacionesService {
       });
 
       await transporter.sendMail({
-        to: 'micawebdev@gmail.com',      // o datosCorreo.correoElectronico
+        to: 'micawebdev@gmail.com',      
         subject: 'Nueva Reserva',
         html: correoHtml,
       });
 
-      return true; // <- el servicio devuelve un resultado
+      return true;
     } catch (error) {
       console.error('Error al enviar el correo:', error);
       return false;
