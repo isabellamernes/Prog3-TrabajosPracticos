@@ -80,7 +80,7 @@ export default class ReservasServicio {
                 buffer: pdf,
                 headers:{
                     'Content-Type' : 'application/pdf',
-                    'Content-Disposition' : 'inline; filename="reporte.pdf"'
+                    'Content-Disposition' : 'inline; filename="reservas.pdf"'
                 }
             }
         } else if (formato === 'csv'){
@@ -89,7 +89,7 @@ export default class ReservasServicio {
                 path: csv,
                 headers:{
                     'Content-Type' : 'text/csv',
-                    'Content-Disposition' : 'attachment; filename="reporte.csv"'
+                    'Content-Disposition' : 'attachment; filename="reservas.csv"'
                 }
             }
         }
