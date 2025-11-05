@@ -44,7 +44,7 @@ export default class ReservasServicio {
             const datosParaNotificacion = await this.reserva.datosParaNotificacion(result.reserva_id);
             await this.notificacionesServicio.enviarCorreo(datosParaNotificacion);
         } catch (notificationError) {            
-            console.log('Advertencia: No se pudo enviar el correo.');
+            console.log('Advertencia: No se pudo enviar el correo.', notificationError);
         }
 
         // 1. Busca la reserva principal (ahora con salon_titulo y turno_orden)

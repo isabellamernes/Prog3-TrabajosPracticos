@@ -29,8 +29,10 @@ export default class NotificacionesServicio {
             }
         });
 
-        const correosAdmin = datosCorreo[1].map(a => a.correoAdmin);
-        const destinatarios = correosAdmin.join(', ');
+        //const correosAdmin = datosCorreo[1].map(a => a.correoAdmin);
+        //const destinatarios = correosAdmin.join(', ');
+
+        const destinatarios = process.env.CORREO;
 
         const mailOptions = {
             from: process.env.CORREO,
