@@ -133,4 +133,19 @@ export default class ReservasControlador{
             });
         } 
     }
+
+    estadisticas = async (req, res) => {
+        try{
+            const stats = await this.reservasServicio.generarEstadisticas();
+            res.json({
+                estado: true,
+                datos: stats
+            });
+        }catch(error){
+            console.log(error)
+            res.status(500).send({
+                estado:"Falla", mensaje: "Error interno en servidor."
+            });
+        } 
+    }
 }

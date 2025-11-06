@@ -94,4 +94,12 @@ export default class ReservasServicio {
             }
         }
     }
+    generarEstadisticas = async () => {
+        // Por ahora solo llamamos a una, pero podrías llamar a varias
+        const topSalones = await this.reserva.generarEstadisticaTopSalones();
+        
+        return {
+            top_salones: topSalones
+        };
+    }
 }
