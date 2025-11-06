@@ -90,4 +90,9 @@ export default class Reservas {
         const [result] = await conexion.query(sql);
         return result[0];
     }
+    generarEstadisticaTopSalones = async() => {
+        const sql = `CALL sp_estadistica_top_salones()`;
+        const [result] = await conexion.query(sql);
+        return result[0];
+    }
 }

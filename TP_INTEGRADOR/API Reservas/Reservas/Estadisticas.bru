@@ -1,11 +1,11 @@
 meta {
-  name: Eliminar Usuario
+  name: Estadisticas
   type: http
-  seq: 5
+  seq: 6
 }
 
-delete {
-  url: {{baseUrl}}/api/v1/usuarios/11
+get {
+  url: {{baseUrl}}/api/v1/reservas/estadisticas
   body: none
   auth: bearer
 }

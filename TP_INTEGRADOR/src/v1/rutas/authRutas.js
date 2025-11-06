@@ -12,6 +12,22 @@ router.post('/login',
         check('contrasenia', 'La contrasenia es requerida!').not().isEmpty(),
         validarCampos
     ], 
-    authControlador.login);
+    authControlador.login
+);
+
+router.post('/register', 
+    [
+        check('nombre', 'El nombre es necesario.').notEmpty(),
+        check('apellido', 'El apellido es necesario.').notEmpty(),
+        check('nombre_usuario', 'El nombre_usuario (email) es necesario.').notEmpty().isEmail(),
+        check('contrasenia', 'La contraseña es necesaria.').notEmpty(),
+        validarCampos
+    ], 
+    authControlador.register
+);
+
+
+
+
 
 export { router };
