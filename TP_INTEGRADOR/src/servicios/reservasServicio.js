@@ -94,12 +94,28 @@ export default class ReservasServicio {
             }
         }
     }
-    generarEstadisticas = async () => {
-        // Por ahora solo llamamos a una, pero podrías llamar a varias
+    generarEstadisticas = async (formato) => {
+        // 1. Obtenemos los datos (esto ya lo tenías)
         const topSalones = await this.reserva.generarEstadisticaTopSalones();
         
-        return {
+        const datosEstadisticas = {
             top_salones: topSalones
         };
+
+        // 2. Decidimos qué devolver
+        if (formato === 'pdf') {
+            // Llamamos a la NUEVA función de informes
+            const pdf = await this.informes.informeEstadisticasPdf(datosEstadisticas);
+            return {
+                buffer: pdf,
+                headers:{
+                    'Content-Type' : 'application/pdf',
+                    'Content-Disposition' : 'inline; filename="estadisticas_reservas.pdf"'
+                }
+            }
+        } else {
+            // Si no es PDF, devolvemos el JSON como antes
+            return datosEstadisticas;
+        }
     }
 }

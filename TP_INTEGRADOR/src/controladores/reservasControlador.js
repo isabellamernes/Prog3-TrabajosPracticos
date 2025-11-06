@@ -133,14 +133,28 @@ export default class ReservasControlador{
             });
         } 
     }
+    
 
     estadisticas = async (req, res) => {
         try{
-            const stats = await this.reservasServicio.generarEstadisticas();
-            res.json({
-                estado: true,
-                datos: stats
-            });
+            // 1. Leemos el formato (ej: ?formato=pdf)
+            const formato = req.query.formato;
+            
+            // 2. Pasamos el formato al servicio
+            const resultado = await this.reservasServicio.generarEstadisticas(formato);
+            
+            // 3. Verificamos qué nos devolvió el servicio
+            if (formato === 'pdf') {
+                // Si pedimos PDF, enviamos el buffer
+                res.set(resultado.headers);
+                res.status(200).end(resultado.buffer);
+            } else {
+                // Si no, enviamos el JSON
+                res.json({
+                    estado: true,
+                    datos: resultado
+                });
+            }
         }catch(error){
             console.log(error)
             res.status(500).send({

@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/api/v1/reservas/estadisticas
+  url: {{baseUrl}}/api/v1/reservas/estadisticas?formato=pdf
   body: none
   auth: bearer
+}
+
+params:query {
+  formato: pdf
 }
 
 auth:bearer {
