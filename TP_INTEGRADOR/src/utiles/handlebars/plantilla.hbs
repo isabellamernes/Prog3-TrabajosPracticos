@@ -4,63 +4,208 @@
   <title>Nueva Reserva</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
       margin: 0;
       padding: 0;
+      background-color: #f3f4f6;
+      font-family: Arial, Helvetica, sans-serif;
     }
-    .container {
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #f3f4f6;
+      padding: 20px 0;
+    }
+    .main {
+      width: 100%;
       max-width: 650px;
-      margin: 20px auto;
-      padding: 25px;
+      margin: 0 auto;
       background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e5e7eb;
     }
-    header {
-      text-align: center;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #e0e0e0;
+    .header {
+      background: radial-gradient(circle at top left, #22c55e, #16a34a);
+      padding: 22px 28px;
+      color: #ffffff;
+      text-align: left;
     }
-    header h1 {
+    .header-title {
       margin: 0;
-      color: #03912e;
+      font-size: 22px;
+      font-weight: bold;
     }
-    ul {
-      list-style-type: "📌 ";
-      padding-left: 20px;
-    }
-    li {
-      margin: 8px 0;
-      font-size: 16px;
-      color: #333;
-    }
-    footer {
-      text-align: center;
-      margin-top: 20px;
+    .header-subtitle {
+      margin: 6px 0 0;
       font-size: 13px;
-      color: #666;
-      border-top: 1px solid #e0e0e0;
-      padding-top: 10px;
+      opacity: 0.92;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 999px;
+      background-color: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .content {
+      padding: 22px 28px 10px;
+    }
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 18px;
+      color: #111827;
+    }
+    .intro {
+      margin: 0 0 18px;
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .details-table th,
+    .details-table td {
+      padding: 9px 10px;
+      text-align: left;
+    }
+    .details-table th {
+      width: 34%;
+      background-color: #f9fafb;
+      color: #6b7280;
+      font-weight: normal;
+      border-bottom: 1px solid #e5e7eb;
+      border-right: 1px solid #e5e7eb;
+    }
+    .details-table td {
+      border-bottom: 1px solid #e5e7eb;
+      color: #111827;
+    }
+    .details-table tr:last-child th,
+    .details-table tr:last-child td {
+      border-bottom: none;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background-color: #ecfdf3;
+      color: #047857;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+    .footer {
+      padding: 14px 24px 18px;
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      background-color: #f9fafb;
+    }
+    .footer small {
+      display: block;
+      margin-top: 2px;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media only screen and (max-width: 480px) {
+      .content {
+        padding: 18px 18px 8px;
+      }
+      .header {
+        padding: 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Reservas de Casas de Cumpleaños 🎉</h1>
-    </header>
+  <table class="wrapper" cellpadding="0" cellspacing="0" role="presentation">
+    <tr>
+      <td align="center">
+        <table class="main" cellpadding="0" cellspacing="0" role="presentation">
+          <!-- HEADER -->
+          <tr>
+            <td class="header">
+              <div class="pill">Nueva reserva</div>
+              <h1 class="header-title">Reservas de Casas de Cumpleaños 🎉</h1>
+              <p class="header-subtitle">
+                Se registró una nueva reserva en el sistema.
+              </p>
+            </td>
+          </tr>
 
-    <h2>Notificación de nueva reserva</h2>
-    <ul>
-      <li><strong>Fecha de reserva:</strong> {{ fecha }}</li>
-      <li><strong>Salón:</strong> {{ salon }}</li>
-      <li><strong>Turno:</strong> {{ turno }}</li>
-    </ul>
+          <!-- CONTENIDO -->
+          <tr>
+            <td class="content">
+              <h2 class="section-title">Detalles de la reserva</h2>
+              <p class="intro">
+                A continuación se muestran los datos principales de la reserva.
+                Si sos administrador, podés gestionarla desde el sistema.
+                Si sos cliente, conservá este correo como comprobante de tu reserva.
+              </p>
 
-    <footer>
-      &copy; 2025 Reservas de Casas de Cumpleaños
-    </footer>
-  </div>
+              <table class="details-table" cellpadding="0" cellspacing="0" role="presentation">
+                <tr>
+                  <th>Cliente</th>
+                  <td>{{ cliente }}<br>
+                    <span style="font-size:12px;color:#6b7280;">
+                      <a href="mailto:{{ correoCliente }}">{{ correoCliente }}</a>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Fecha de reserva</th>
+                  <td>{{ fecha }}</td>
+                </tr>
+                <tr>
+                  <th>Salón</th>
+                  <td>{{ salon }}</td>
+                </tr>
+                <tr>
+                  <th>Turno</th>
+                  <td>{{ turno }}</td>
+                </tr>
+              </table>
+
+              <p class="note">
+                Este correo se envía automáticamente a la persona que realizó la
+                reserva y a los administradores del sistema. No respondas a este
+                mensaje, ya que no se encuentra monitoreado de forma permanente.
+              </p>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td class="footer">
+              Reservas de Casas de Cumpleaños
+              <small>&copy; 2025 &mdash; Todos los derechos reservados.</small>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>

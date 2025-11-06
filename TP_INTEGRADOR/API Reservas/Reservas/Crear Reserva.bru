@@ -10,30 +10,36 @@ post {
   auth: bearer
 }
 
+headers {
+  Authorization: Bearer {{token}}
+}
+
 auth:bearer {
   token: {{token}}
 }
 
 body:json {
   {
-    "fecha_reserva": "2025-12-20",
-    "salon_id": 6,
-    "turno_id": 1,
-    "tematica": "Superhéroes",
-    "importe_salon": 10000.00,
-    "importe_total": 260000.00,
-    "foto_cumpleaniero": null,
-    "servicios": [
-      {
-        "servicio_id": 1,
-        "importe": 15000.00
-      },
-      {
-        "servicio_id": 8,
-        "importe": 1000.00
-      }
-    ]
-  }
+      "fecha_reserva": "2025-10-19",
+      "salon_id": "1",
+      "usuario_id": "1",
+      "turno_id": "2",
+      "foto_cumpleaniero": "foto_cumpleaniero",
+      "tematica": "CASA",
+      "importe_salon": "80000",
+      "importe_total": "95000",
+      "servicios": [
+        {
+          "servicio_id": 2,
+          "importe": 1000
+        },
+        {
+          "servicio_id": 1,
+          "importe": 25000
+        }
+      ]
+    }
+  
 }
 
 settings {

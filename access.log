@@ -1,0 +1,6 @@
+::1 - - [05/Nov/2025:22:45:43 +0000] "POST /api/v1/reservas HTTP/1.1" 401 - "-" "bruno-runtime/2.13.2"
+::1 - - [05/Nov/2025:22:45:47 +0000] "POST /api/v1/reservas HTTP/1.1" 401 - "-" "bruno-runtime/2.13.2"
+::1 - - [05/Nov/2025:22:45:58 +0000] "POST /api/v1/reservas HTTP/1.1" 401 - "-" "bruno-runtime/2.13.2"
+::1 - - [05/Nov/2025:22:46:24 +0000] "POST /api/v1/reservas HTTP/1.1" 401 - "-" "bruno-runtime/2.13.2"
+::1 - - [05/Nov/2025:22:46:30 +0000] "GET /api/v1/reservas HTTP/1.1" 401 - "-" "bruno-runtime/2.13.2"
+::1 - - [05/Nov/2025:22:47:25 +0000] "GET /api/v1/reservas HTTP/1.1" 401 - "-" "bruno-runtime/2.13.2"
