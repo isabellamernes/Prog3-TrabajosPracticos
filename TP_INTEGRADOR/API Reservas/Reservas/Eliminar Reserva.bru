@@ -1,0 +1,20 @@
+meta {
+  name: Eliminar Reserva
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseUrl}}/api/v1/reservas/23
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
