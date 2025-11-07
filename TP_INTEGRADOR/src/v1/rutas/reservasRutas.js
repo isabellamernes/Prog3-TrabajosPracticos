@@ -14,10 +14,6 @@ router.get('/informe', autorizarUsuarios([1]), reservasControlador.informe);
 router.get('/estadisticas', autorizarUsuarios([1]), reservasControlador.estadisticas);  
 router.get('/:reserva_id',  autorizarUsuarios([1,2,3]), reservasControlador.buscarPorId);
 router.get('/',  autorizarUsuarios([1,2,3]), reservasControlador.buscarTodos);
-router.get('/informe', autorizarUsuarios([1]), reservasControlador.informe);
-router.get('/informe', autorizarUsuarios([1]), reservasControlador.informe);  
-router.get('/:reserva_id', autorizarUsuarios([1,2,3]), reservasControlador.buscarPorId);
-router.get('/', autorizarUsuarios([1,2,3]), reservasControlador.buscarTodos);
 
 
 // Nota: usamos validación SIMPLE aquí: verificamos que 'datos' exista (JSON en form-data).
