@@ -1,4 +1,5 @@
 import express from 'express';
+import { swaggerDocs } from './config/swagger.js';
 import passport from 'passport';
 import morgan from 'morgan';
 import fs from 'fs';
@@ -27,6 +28,9 @@ app.use(morgan('combined', { stream: log }))
 // Ruta pública
 app.use('/api/v1/auth', v1AuthRutas); 
 
+// Integrar Swagger
+swaggerDocs(app);
+
 // Rutas protegidas (requieren token JWT)
 app.use(passport.authenticate('jwt', { session: false }));
 
@@ -35,5 +39,10 @@ app.use('/api/v1/reservas', v1ReservasRutas);
 app.use('/api/v1/servicios', v1ServiciosRutas); 
 app.use('/api/v1/turnos', v1TurnosRutas);     
 app.use('/api/v1/usuarios', v1UsuariosRutas);
+
+
+
+
+
 
 export default app;

@@ -29,6 +29,8 @@ router.put('/:salon_id',
     salonesControlador.modificar
 );
 
+
+
 // Crear (Admin y Empleado)
 router.post('/', 
     autorizarUsuarios([1, 2]), 
@@ -49,5 +51,113 @@ router.delete('/:salon_id',
     autorizarUsuarios([1, 2]), 
     salonesControlador.eliminar
 );
+
+
+/**
+ * @swagger
+ * tags:
+ *   name: Salones
+ *   description: Endpoints de salones
+ */
+
+/**
+ * @swagger
+ * /salones:
+ *   get:
+ *     summary: Listar todos los salones
+ *     tags: [Salones]
+ *     responses:
+ *       200:
+ *         description: Lista de salones
+ * 
+ *   post:
+ *     summary: Crear un nuevo salón
+ *     tags: [Salones]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               titulo:
+ *                 type: string
+ *                 example: "Salón Principal"
+ *               capacidad:
+ *                 type: integer
+ *                 example: 50
+ *     responses:
+ *       200:
+ *         description: Salón creado
+ */
+
+/**
+ * @swagger
+ * /salones/{salon_id}:
+ *   get:
+ *     summary: Obtener un salón por ID
+ *     tags: [Salones]
+ *     parameters:
+ *       - in: path
+ *         name: salon_id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del salón
+ *     responses:
+ *       200:
+ *         description: Salón encontrado
+ *       404:
+ *         description: Salón no encontrado
+ * 
+ *   put:
+ *     summary: Modificar un salón por ID
+ *     tags: [Salones]
+ *     parameters:
+ *       - in: path
+ *         name: salon_id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del salón
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               titulo:
+ *                 type: string
+ *                 example: "Salón Secundario"
+ *               capacidad:
+ *                 type: integer
+ *                 example: 30
+ *     responses:
+ *       200:
+ *         description: Salón modificado
+ *       404:
+ *         description: Salón no encontrado
+ * 
+ *   delete:
+ *     summary: Eliminar un salón por ID
+ *     tags: [Salones]
+ *     parameters:
+ *       - in: path
+ *         name: salon_id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del salón
+ *     responses:
+ *       200:
+ *         description: Salón eliminado
+ *       404:
+ *         description: Salón no encontrado
+ */
+
+
+
+
 
 export { router };

@@ -7,6 +7,13 @@ import TurnosControlador from '../../controladores/turnosControlador.js';
 const controlador = new TurnosControlador();
 const router = express.Router();
 
+
+
+
+
+
+
+
 // 1=Admin, 2=Empleado, 3=Cliente
 router.get('/', autorizarUsuarios([1, 2, 3]), controlador.buscarTodos);
 router.get('/:turno_id', autorizarUsuarios([1, 2, 3]), controlador.buscarPorID);
@@ -37,5 +44,100 @@ router.delete('/:turno_id',
     autorizarUsuarios([1, 2]), 
     controlador.eliminar
 );
+
+
+/**
+ * @swagger
+ * tags:
+ *   name: Turnos
+ *   description: Endpoints para los turnos disponibles
+ */
+
+/**
+ * @swagger
+ * /turnos:
+ *   get:
+ *     summary: Listar todos los turnos
+ *     tags: [Turnos]
+ *     responses:
+ *       200:
+ *         description: Lista de turnos
+ *   post:
+ *     summary: Crear nuevo turno
+ *     tags: [Turnos]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               horario:
+ *                 type: string
+ *                 example: "14:00:00 a 16:00:00"
+ *               orden:
+ *                 type: integer
+ *                 example: 3
+ *     responses:
+ *       200:
+ *         description: Turno creado correctamente
+ * 
+ * /turnos/{turno_id}:
+ *   get:
+ *     summary: Buscar turno por ID
+ *     tags: [Turnos]
+ *     parameters:
+ *       - in: path
+ *         name: turno_id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: Turno encontrado
+ *   put:
+ *     summary: Modificar turno
+ *     tags: [Turnos]
+ *     parameters:
+ *       - in: path
+ *         name: turno_id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               horario:
+ *                 type: string
+ *                 example: "16:00:00 a 18:00:00"
+ *     responses:
+ *       200:
+ *         description: Turno modificado
+ *   delete:
+ *     summary: Eliminar turno por ID
+ *     tags: [Turnos]
+ *     parameters:
+ *       - in: path
+ *         name: turno_id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Turno eliminado
+ */
+
+
+
+
+
+
+
+
+
 
 export { router };

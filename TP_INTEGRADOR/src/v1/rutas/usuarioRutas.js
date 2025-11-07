@@ -39,4 +39,99 @@ router.delete('/:usuario_id',
     controlador.eliminar
 );
 
+/**
+ * @swagger
+ * tags:
+ *   name: Usuarios
+ *   description: Endpoints para gestión de usuarios
+ */
+
+/**
+ * @swagger
+ * /usuarios:
+ *   get:
+ *     summary: Listar todos los usuarios
+ *     tags: [Usuarios]
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios
+ *   post:
+ *     summary: Crear nuevo usuario
+ *     tags: [Usuarios]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre_usuario:
+ *                 type: string
+ *                 example: "Juan Pérez"
+ *               email:
+ *                 type: string
+ *                 example: "juan@mail.com"
+ *               contrasena:
+ *                 type: string
+ *                 example: "123456"
+ *               tipo_usuario:
+ *                 type: integer
+ *                 example: 3
+ *     responses:
+ *       200:
+ *         description: Usuario creado correctamente
+ * 
+ * /usuarios/{usuario_id}:
+ *   get:
+ *     summary: Obtener usuario por ID
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: path
+ *         name: usuario_id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: Usuario encontrado
+ *   put:
+ *     summary: Modificar usuario
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: path
+ *         name: usuario_id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre_usuario:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Usuario modificado
+ *   delete:
+ *     summary: Eliminar usuario
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: path
+ *         name: usuario_id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Usuario eliminado
+ */
+
+
+
+
 export { router };

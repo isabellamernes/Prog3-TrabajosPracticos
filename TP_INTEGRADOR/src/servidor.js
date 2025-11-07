@@ -1,7 +1,10 @@
 import app from './reservas.js';
+import dotenv from 'dotenv';
 
-process.loadEnvFile();
+dotenv.config(); // Carga el .env automáticamente
 
-app.listen(process.env.PUERTO, () => {
-    console.log(`Servidor iniciado en ${process.env.PUERTO}`);
-})
+const PUERTO = process.env.PUERTO || 3000;
+
+app.listen(PUERTO, () => {
+  console.log(` Servidor iniciado en el puerto ${PUERTO}`);
+});
