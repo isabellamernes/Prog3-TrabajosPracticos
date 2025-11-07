@@ -13,6 +13,8 @@ import { router as v1ServiciosRutas } from './v1/rutas/serviciosRutas.js';
 import { router as v1TurnosRutas } from './v1/rutas/turnosRutas.js';
 import { router as v1UsuariosRutas } from './v1/rutas/usuarioRutas.js'; 
 
+import uploadRutas from './v1/rutas/uploadRutas.js';
+
 const app = express();
 
 app.use(express.json());
@@ -20,6 +22,8 @@ app.use(express.json());
 passport.use(estrategia);
 passport.use(validacion);
 app.use(passport.initialize());
+
+app.use('/uploads', express.static('uploads'));
 
 let log = fs.createWriteStream('./access.log', { flags: 'a' })
 app.use(morgan('combined')) 
@@ -41,8 +45,7 @@ app.use('/api/v1/turnos', v1TurnosRutas);
 app.use('/api/v1/usuarios', v1UsuariosRutas);
 
 
-
-
+app.use('/api/v1/upload', uploadRutas);
 
 
 export default app;
